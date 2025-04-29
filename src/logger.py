@@ -26,6 +26,36 @@ embedding_file_handler.setFormatter(rag_formatter)
 embedding_logger.addHandler(embedding_file_handler)
 
 # --- LOGGING FUNCTIONS ---
+def log_retrieval_results(docs, log_file="logs/retrieved_results.csv"):
+    """
+    Save retrieved document results (Section, Question, Answer) into a CSV log file.
+
+    Args:
+        docs (List[Document]): Retrieved LangChain documents.
+        log_file (str): Output CSV file path.
+    """
+    file_exists = os.path.isfile(log_file)
+
+    with open(log_file, mode="a", newline="", encoding="utf-8") as csvfile:
+        fieldnames = ["Timestamp", "Result No", "Section", "Original Question", "Answer"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        if not file_exists:
+            writer.writeheader()
+
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        for idx, doc in enumerate(docs, 1):
+            writer.writerow({
+                "Timestamp": timestamp,
+                "Result No": idx,
+                "Section": doc.metadata.get("section", "Unknown"),
+                "Original Question": doc.metadata.get("question", "Unknown"),
+                "Answer": doc.page_content
+            })
+
+    print(f"✅ Retrieved results saved to: {log_file}")
+
 
 def log_event(message: str):
     """

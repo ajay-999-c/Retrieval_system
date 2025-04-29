@@ -1,6 +1,6 @@
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
-from logger import log_event  # Assumes logger.py with log_event() is available
+from logger import log_event 
 
 
 class RetrieverSystem:

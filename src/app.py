@@ -1,6 +1,6 @@
 import streamlit as st
 from retriever import RetrieverSystem
-
+from logger import log_retrieval_results
 # 1. Initialize Retriever
 retriever_system = RetrieverSystem()
 
@@ -29,6 +29,7 @@ if st.button("Retrieve Answer"):
             docs = retriever_system.retrieve(query=query, k=k, section_filter=section_filter)
         
         if docs:
+            log_retrieval_results(docs)
             for idx, doc in enumerate(docs):
                 st.subheader(f"Result {idx+1}")
                 st.markdown(f"**Section:** {doc.metadata.get('section', 'Unknown')}")

@@ -1,0 +1,61 @@
+
+# --- Core LangChain Libraries ---
+langchain>=0.3,<0.4
+langchain-core>=0.3,<0.4
+langchain-community>=0.3,<0.4
+langchain-text-splitters>=0.3.8,<1.0.0
+langchain-experimental>=0.3,<0.4
+
+# --- Integration Packages ---
+langchain-huggingface>=0.1,<0.2
+langchain-ollama>=0.2,<0.3
+langchain-openai>=0.2,<0.3
+langchain-groq>=0.2,<0.3
+langchain-chroma==0.1.4
+
+# --- Dependencies ---
+ollama>=0.3.0,<1.0.0
+pydantic>=2.7.4,<3.0.0
+
+# --- Vector Stores ---
+chromadb==0.4.24
+faiss-cpu==1.7.4
+
+# --- Embedding Models ---
+sentence-transformers==2.7.0
+transformers==4.40.0
+huggingface-hub>=0.19.3
+tokenizers<0.20,>=0.19
+safetensors>=0.4.1
+
+# --- Frontend (Streamlit App) ---
+streamlit==1.33.0
+altair<6,>=4.0
+blinker<2,>=1.0.0
+cachetools<6,>=4.0
+click<9,>=7.0
+gitpython!=3.1.19,<4,>=3.0.7
+packaging<25,>=16.8
+protobuf<5,>=3.20
+pyarrow>=7.0
+pydeck<1,>=0.8.0b4
+rich<14,>=10.14.0
+tenacity<9,>=8.1.0
+toml<2,>=0.10.1
+tornado<7,>=6.0.3
+watchdog>=2.1.5
+
+# --- Backend API ---
+fastapi==0.110.0
+uvicorn==0.29.0
+
+
+# --- Evaluation, ML Utilities ---
+deepeval==0.20.7
+scikit-learn
+scipy
+tqdm
+nltk==3.9.1
+langdetect==1.0.9
+
+
